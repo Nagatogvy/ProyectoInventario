@@ -30,13 +30,13 @@ public class ArbolInventario {
         return raiz;
     }
     // MOSTRAR INVENTARIO
-public void mostrarInventario() {
-    inorden(raiz);
-}
+    public void mostrarInventario() {
+        inorden(raiz);
+    }
 
-private void inorden(Producto raiz) {
+    private void inorden(Producto raiz) {
 
-    if (raiz != null) {
+     if (raiz != null) {
 
         inorden(raiz.izquierdo);
 
@@ -46,6 +46,28 @@ private void inorden(Producto raiz) {
         );
 
         inorden(raiz.derecho);
+        }
     }
-}
+    // BUSCAR PRODUCTO
+    public boolean buscar(int id) {
+     return buscarRec(raiz, id);
+    }
+
+    private boolean buscarRec(Producto raiz, int id) {
+
+     if (raiz == null) {
+          return false;
+     }
+
+     if (raiz.id == id) {
+         return true;
+      }
+
+     if (id < raiz.id) {
+         return buscarRec(raiz.izquierdo, id);
+     }
+
+     return buscarRec(raiz.derecho, id);
+    }
+
 }
