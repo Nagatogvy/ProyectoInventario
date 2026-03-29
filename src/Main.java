@@ -76,15 +76,21 @@ public class Main {
                     int idBuscar =
                     scanner.nextInt();
 
-                    if (arbol.buscar(idBuscar)) {
+                    Producto productoEncontrado =
+                     arbol.buscar(idBuscar);
 
-                        System.out.println(
-                        "Producto encontrado.");
+                    if (productoEncontrado != null) {
+
+                    System.out.println(
+                      "Producto encontrado: "
+                     + productoEncontrado.nombre
+                    );
 
                     } else {
 
-                        System.out.println(
-                        "Producto NO encontrado.");
+                     System.out.println(
+                      "Producto NO encontrado."
+                     );
 
                     }
 
