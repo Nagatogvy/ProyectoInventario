@@ -49,24 +49,28 @@ public class ArbolInventario {
         }
     }
     // BUSCAR PRODUCTO
-    public boolean buscar(int id) {
-     return buscarRec(raiz, id);
+    public Producto buscar(int id) {
+      return buscarRec(raiz, id);
     }
 
-    private boolean buscarRec(Producto raiz, int id) {
+    private Producto buscarRec(Producto raiz, int id) {
 
+    // Si no existe
      if (raiz == null) {
-          return false;
-     }
-
-     if (raiz.id == id) {
-         return true;
+          return null;
       }
 
+    // Si se encuentra
+      if (raiz.id == id) {
+         return raiz;
+     }
+
+    // Buscar en izquierda
      if (id < raiz.id) {
          return buscarRec(raiz.izquierdo, id);
      }
 
+    // Buscar en derecha
      return buscarRec(raiz.derecho, id);
     }
 
