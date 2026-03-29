@@ -29,4 +29,23 @@ public class ArbolInventario {
 
         return raiz;
     }
+    // MOSTRAR INVENTARIO
+public void mostrarInventario() {
+    inorden(raiz);
+}
+
+private void inorden(Producto raiz) {
+
+    if (raiz != null) {
+
+        inorden(raiz.izquierdo);
+
+        System.out.println(
+            "ID: " + raiz.id +
+            " | Nombre: " + raiz.nombre
+        );
+
+        inorden(raiz.derecho);
+    }
+}
 }
